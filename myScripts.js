@@ -1,7 +1,7 @@
 //This document holds the JavaScript used in the following webpages:
 //More info: https://github.com/tarrantja/Project-1
 
-//These functions are used to highligh certain elements on the html_info.html page
+//These functions are used to highligh certain elements on the index.html page
 
 function hightlightList() { //Highlight unordered lists
     var x = document.getElementsByTagName("ul");
@@ -101,6 +101,8 @@ function reset() {
 //It requests a fact (either 'math' or 'trivia') about a number from numbersapi.com.
 
 let elNumber = document.getElementById("numberForm");
+let cors_api_url = 'https://cors-anywhere.herokuapp.com/';
+
 if (elNumber != null) {
     elNumber.addEventListener("submit", function () { //Wait for user to submit form
         event.preventDefault();
@@ -113,6 +115,23 @@ if (elNumber != null) {
             number = "random";
         }
         url = "http://numbersapi.com/" + number + "/" + type + "?json"; //Creates a custom url with number and fact type
+
+        var x = new XMLHttpRequest();
+        x.open('GET', cors_api_url+url, true); //--
+        x.onload = function() {
+            let data = JSON.parse(x.responseText);
+            let text = data.text;
+            console.log(text);
+            factDiv.innerHTML = "<p class='fact'>" + text + "</p>";
+        };
+        x.onerror = function() {
+            console.log(error);
+            factDiv.innerHTML = "<p class='fact'>There was an error... please try again ¯\\_(ツ)_/¯ </p>";
+        }
+        x.send();
+
+
+        /*
         fetch(url) // Makes the request
             .then((resp) => resp.json()) //Read as JSON formatted data
             .then(function (data) {
@@ -121,8 +140,34 @@ if (elNumber != null) {
                 factDiv.innerHTML = "<p class='fact'>" + text + "</p>"; //Display on webpage
             })
             .catch(function (error) { // Catch any error and display a useful message
-                console.log(error);
-                factDiv.innerHTML = "<p class='fact'>There was an error... please try again ¯\\_(ツ)_/¯ </p>";
-            });
+
+            });*/
     });
 }
+
+
+
+/*
+
+// Bind event
+(function() {
+  var urlField = document.getElementById('url');
+  var dataField = document.getElementById('data');
+  var outputField = document.getElementById('output');
+  document.getElementById('get').onclick =
+  document.getElementById('post').onclick = function(e) {
+    e.preventDefault();
+    doCORSRequest({
+      method: this.id === 'post' ? 'POST' : 'GET',
+      url: urlField.value,
+      data: dataField.value
+    }, function printResult(result) {
+      outputField.value = result;
+    });
+  };
+})();
+if (typeof console === 'object') {
+  console.log('// To test a local CORS Anywhere server, set cors_api_url. For example:');
+  console.log('cors_api_url = "http://localhost:8080/"');
+}
+*/

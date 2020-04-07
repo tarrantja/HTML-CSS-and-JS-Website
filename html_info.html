@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>HTML</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!--External StyleSheet-->
+    <link rel="stylesheet" href="mystylesheet1.css">
+
+    <!--Load custom JavaScript file-->
+    <script async defer src="myScripts.js"></script>
+
+    <!--Page-specific styling-->
+    <style>
+        #h1:hover,
+        #h2:hover,
+        #p:hover,
+        #table:hover,
+        #list:hover {
+            background-color: yellow;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!--Navigation Bar-->
+    <ul class="mynavbar">
+        <li class="active"><a href="index.html">HTML</a></li>
+        <li><a href="css_info.html">CSS</a></li>
+        <li><a href="javascript_info.html">JavaScript</a></li>
+        <li><a href="about.html">About</a></li>
+    </ul>
+
+    <!--Main heading-->
+    <div>
+        <h1>Hypertext Markup Language (HTML)</h1>
+    </div>
+
+    <!--The purpose of HTML-->
+    <div class="section">
+        <h2>Purpose</h2>
+        <p>HTML is the core mark-up language of the World Wide Web. It's purpose is to describe the structure of the
+            text-based content of a website <cite><a href="https://www.w3schools.com/html/html_intro.asp"
+                    target=_blank>(W3Schools, 2020)</a></cite>.</p>
+
+    </div>
+
+    <!--Explanation of what HTML looks like and where elements exist on this webpage-->
+    <div class="section" id="description">
+        <h2>Description</h2>
+
+
+        <p>Content to be displayed is arranged into a series of elements, represented by tags. These tags are labelled
+            pieces of content, such as headings, paragraphs and tables. Hover over each of the lines of HTML below to
+            reveal where these elements exist on this page.</p>
+        <br>
+        <div class="well">
+            <pre>
+    <span>&lt;body&gt;  &lt;!--This opens the entire body of the page--></span> <!--Code segment-->
+        <span onmouseover=hightlightList() onmouseout=highlightNone() id="list">&lt;ul&gt;...&lt;/ul&gt; &lt;!--Unordered List--></span>
+        <span onmouseover=highlightHeader1() onmouseout=highlightNone() id="h1">&lt;h1&gt;This is a Heading 1&lt;/h1&gt;</span>
+        <span onmouseover=highlightHeader2() onmouseout=highlightNone() id="h2">&lt;h2&gt;This is a Heading 2&lt;/h2&gt;</span>
+        <span onmouseover=highlightPara() onmouseout=highlightNone() id="p">&lt;p&gt;This is a paragraph&lt;/p&gt;</span>
+        <span onmouseover=highlightTable() onmouseout=highlightNone() id="table">&lt;table&gt;...&lt;/table&gt;</span> 
+    <span>&lt;/body&gt;</span></pre>
+        </div>
+        <br>
+        <p>HTML pages can be linked directly to other documents or pages, creating a 'web' of interlinked resources. Typically this is done using the anchor tag as shown below. This has been done in the navigation bar to link the four pages of this website.</p>
+        <br>
+        <div class="well">
+            <pre>&lt;a href="location_of_different_page"&gt; Name of Link &lt;/a&gt;</pre>
+        </div>
+
+
+    </div>
+
+    <!--The History and evolution of HTML-->
+    <div class="section" style="padding-bottom:100px">
+        <h2>History</h2>
+        <table class="table">
+            <tr>
+                <th>Date</th>
+                <th>Event</th>
+            </tr>
+            <tr>
+                <td>1989</td>
+                <td>
+                    While working at <abbr title="The European Organization for Nuclear Research">CERN</abbr>, Tim
+                    Berners-Lee theorises a way for researchers to collaborate remotely by creating a pool of research
+                    documents that could be downloaded as computer files <cite><a
+                            href="https://www.w3.org/People/Raggett/book4/ch02.html" target=_blank>(Regget et al,
+                            1998)</a></cite>. More so, the text in the documents could be linked directly to other
+                    documents with relevant text or diagrams to create a 'web'. The Web, with HTML as its publishing
+                    language, was invented.</td>
+            </tr>
+            <tr>
+                <td>1990</td>
+                <td>Sir Tim Berners-Lee creates HTML as a simple language to implement global hypertext links, and
+                    encourages dicsussion and open collaboration <cite><a
+                            href="https://www.w3.org/People/Raggett/book4/ch02.html" target=_blank>(Regget et al,
+                            1998)</a></cite>. The language was strongly based on <abbr
+                        title="Standard Generalized Markup Language">SGML</abbr>, a method for marking up text into
+                    structural units. Similarities include the use of pairs-of-tags and elements such as paragraphs,
+                    headings and ordered and unordered lists. Tim also creates the world's first web browser, the
+                    <em>WorldWideWeb</em> program.</td>
+            </tr>
+            <tr>
+                <td>1992</td>
+                <td>Joseph Hardin and Dave Thompson from <abbr
+                        title="National Center for Supercomputer Applications">NSCA</abbr> learn of Tim's invention and,
+                    realising the importance, develop a browser of their own, <em>Mosaic</em> <cite><a
+                            href="https://www.w3.org/People/Raggett/book4/ch02.html" target=_blank>(Regget et al,
+                            1998)</a></cite>.</td>
+            </tr>
+            <tr>
+                <td>1993</td>
+                <td>Dave Ragget develops the <em>Arena</em> browser. HTML has fast become a democratic language where
+                    developers implement new features in their browsers, and the web community would decide if they
+                    stayed <cite><a href="https://www.wired.com/1997/04/a-brief-history-of-html/" target=_blank>(Veen,
+                            1997)</a></cite>.</td>
+            </tr>
+            <tr>
+                <td>1994</td>
+                <td>The specification for HTML 2 is formed by Tim Berners-Lee and David Connolly, adding new features to
+                    the original HTML specifications <cite><a
+                            href="https://www.yourhtmlsource.com/starthere/historyofhtml.html" target=_blank>(Shannon,
+                            2012)</a></cite>. </td>
+            </tr>
+            <tr>
+                <td>1995</td>
+                <td>HTML 3 is published by Dave Raggett to capture the broad range of HTML tags in use, as well as a
+                    range of new tags. Although the draft was comprehensive, it was believed to be too large and full of
+                    new proposals to implement. Ultimately, HTML 3 was abandoned <cite><a
+                            href="https://www.w3.org/People/Raggett/book4/ch02.html" target=_blank>(Regget et al,
+                            1998)</a></cite>.</td>
+            </tr>
+            <tr>
+                <td>1997</td>
+                <td>HTML 3.2 is endorsed by the W3 Consortium as a HTML specification accepted by most key stakeholders,
+                    including the major broswer vendors <cite><a
+                            href="https://www.w3.org/People/Raggett/book4/ch02.html" target=_blank>(Regget et al,
+                            1998)</a></cite>. This is followed by the release of HTML 4 later the same year <cite><a
+                            href="https://www.w3.org/TR/2014/REC-html5-20141028/introduction.html#history-0"
+                            target=_blank>(W3C, 2014)</a></cite>.</td>
+            </tr>
+            <tr>
+                <td>1998 to 2003</td>
+                <td>The evolution of HTML is put on hold while <abbr title="World Wide Web Consortium">W3C</abbr> work
+                    on <abbr title="Extensible Hypertext Markup Language">XHTML</abbr>.</td>
+            </tr>
+            <tr>
+                <td>2004</td>
+                <td>Browsers such as <em>Opera</em>, <em>Mozilla</em> and <em>Apple</em> form <abbr
+                        title="Web Hypertext Application Technology Working Group">WHATWG</abbr>, a working group to
+                    continue evolving HTML <cite><a
+                            href="https://www.w3.org/TR/2014/REC-html5-20141028/introduction.html#history-0"
+                            target=_blank>(W3C, 2014)</a></cite>. </td>
+            </tr>
+            <tr>
+                <td>2007</td>
+                <td>The HTML 5 specification is published under a <abbr title="World Wide Web Consortium">W3C</abbr>
+                    copyright, the 5th and most recent major revision of the core language <cite><a
+                            href="https://www.w3.org/TR/2014/REC-html5-20141028/introduction.html#history-0"
+                            target=_blank>(W3C, 2014)</a></cite>. A less restrictive version continues to be worked on
+                    by <abbr title="Web Hypertext Application Technology Working Group">WHATWG</abbr>, termed the
+                    <em>Living Standard for HTML</em>.</td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+
+</html>

@@ -11,7 +11,7 @@ April, 2020
 This project contains the following files:  
 ### Root Directory
 * [README.md] This README. 
-* [html_info.html] Explins the purpose and history of html, and uses examples within the web page to describe itself. 
+* [index.html] Explins the purpose and history of html, and uses examples within the web page to describe itself. 
 * [css_info.html] Explains the purpose and history of css, describes how to change the style of a webpage, and how significantly a webpage can change through only changing a css file. 
 * [javascript_info.html] Explains the purpose and history of JavaScript, and demostrates the use of AJAX, the DOM and Forms. 
 * [about.html] Describes the author using a short bio and CV.
