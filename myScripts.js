@@ -130,44 +130,6 @@ if (elNumber != null) {
         }
         x.send();
 
-
-        /*
-        fetch(url) // Makes the request
-            .then((resp) => resp.json()) //Read as JSON formatted data
-            .then(function (data) {
-                console.log(data);
-                let text = data.text;
-                factDiv.innerHTML = "<p class='fact'>" + text + "</p>"; //Display on webpage
-            })
-            .catch(function (error) { // Catch any error and display a useful message
-
-            });*/
     });
 }
 
-
-
-/*
-
-// Bind event
-(function() {
-  var urlField = document.getElementById('url');
-  var dataField = document.getElementById('data');
-  var outputField = document.getElementById('output');
-  document.getElementById('get').onclick =
-  document.getElementById('post').onclick = function(e) {
-    e.preventDefault();
-    doCORSRequest({
-      method: this.id === 'post' ? 'POST' : 'GET',
-      url: urlField.value,
-      data: dataField.value
-    }, function printResult(result) {
-      outputField.value = result;
-    });
-  };
-})();
-if (typeof console === 'object') {
-  console.log('// To test a local CORS Anywhere server, set cors_api_url. For example:');
-  console.log('cors_api_url = "http://localhost:8080/"');
-}
-*/
