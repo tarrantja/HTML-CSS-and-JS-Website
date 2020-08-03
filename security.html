@@ -1,0 +1,121 @@
+<!--This webpage gives an overview of the Author, including a bio, photo and brief CV.-->
+<!--More info: https://github.com/tarrantja/Project-1 -->
+
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>About</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!--External StyleSheet-->
+    <link rel="stylesheet" href="mystylesheet1.css">
+
+    <!--Google Icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!--Font Aswesome Icons-->
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+    <!--Page specific styling-->
+    <style>
+        #info {
+            padding: 0;
+        }
+
+        #info li {
+            display: inline;
+            padding: 10px;
+        }
+
+        img {
+            display: block;
+            max-width: 200px;
+            margin: auto;
+        }
+        p {
+            padding-bottom: 8px;
+        }
+        h3 {
+            text-align: center;
+            padding-bottom: 30px;
+            padding-top:30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--Navigation Bar-->
+    <ul class="mynavbar">
+        <li><a href="index.html">HTML</a></li>
+        <li><a href="css_info.html">CSS</a></li>
+        <li><a href="javascript_info.html">JavaScript</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="active"><a href="security.html">Security</a></li>
+    </ul>
+
+    <!--Main heading-->
+    <div>
+        <h1 style="text-align: center;">Security</h1>
+    </div>
+
+    <!--Contact info and photo section-->
+
+    <div class="section">
+        <h2>Purpose</h2>
+        <p>The purpose of this page is to describe how this website was hosted and secured, and why!</p>
+    </div>
+
+    <div class="section">
+        <h2>Simple Storage Service (S3)</h2>
+        <p>The Amazon Web Services (AWS) S3 service was used as a 'bucket' to hold all the website's html pages,
+            javascript, css and images.</p>
+        <p>This bucket was configed as a static web application with a domain <a
+                href="http://james-03082020-2054.s3-website-ap-southeast-2.amazonaws.com">(click here)</a>.</p>
+        <p><span style="color:red; font-weight: bold;">Issue:</span> If you followed the previous link you would have noticed that the
+            connection was not secure. All information is transported as plain text, and is therefore vulnerable to
+            attackers.</p>
+        <p>This is a limitation of hosting a static web application using S3.</p>
+        <p>A more robust approach is to enable the website for HTTPS, and is why the additional services below have been used.</p>
+
+    </div>
+    <div class="section">
+        <h2>Custom Domain Name</h2>
+        <p>Before I go any further I create a custom domain name using <a href="https://namecheap.com/">NameCheap</a>.</p>
+        <p>I will also be using NameCheap as by DNS database.</p>
+    </div>
+    <div class="section">
+        <h2>Amazon Certificate Manager (ACM)</h2>
+        <p>For a client to trust my server an SSL Certificate needs to be supplied, that proves I am in control of my domain name.</p>
+        <p>ACM is used to generate this certificate. I provide them my domain name, an they provide me records to include in my DNS database.</p>
+        <p>After NameCheap propogates my DNS records, the certificate validates.</p>
+    </div>
+    <div class="section">
+        <h2>CloudFront</h2>
+        <p>AWS's CloudFront is what serves the web content to the public. </p>
+        <p>All HTTP traffic is redirected to HTTPS, ensuring we always use a secure connection.</p>
+        <p>This is also where we link our validated SSL Certificate.</p>
+        <p>CloudFront provides us a domain <a href="d33l0ctioqkbtu.cloudfront.net">(link here)</a>. Notice that this now provides a secure connection!</p>
+        <p><span style="color:red; font-weight: bold;">Issue:</span> The domain provided above is not very human-friendly.</p>
+        <p>We solve this by adding another entry to our DNS database, that routes traffic from our custom domain to CloudFront.</p>
+        <h3>Voila!</h2>
+    </div>
+
+    <div class="section" style="padding-bottom:200px">
+        <h2>Further Technologies</h2>
+        <p>Prevent access directly to the S3 bucket, guideline <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html">here</a></p>
+        <p>Restrict access to certain users (if required). Could be done through CloudFront, guideline <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-overview.html">here</a>.</p>
+        <p>Protect against common exploits by monitoring requests and restricting access using AWS Web Application Firewall (WAF), guideline <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-awswaf.html">here</a>.</p>
+
+    </div>
+
+
+
+</body>
+
+</html>
